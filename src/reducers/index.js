@@ -32,7 +32,7 @@ const reducer = (state = initialState, action) => {
                 smurfs: [...state.smurfs, action.payload]
             })
         default: 
-        return state;
+            return state;
     }
 }
 
