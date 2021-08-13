@@ -18,7 +18,6 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-
         <main>
           <SmurfList/>
           <AddForm/>

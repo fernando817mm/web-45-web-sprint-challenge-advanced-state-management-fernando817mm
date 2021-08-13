@@ -2,14 +2,17 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { fetchFail, addSmurf } from '../actions';
 
-const AddForm = (props) => {
-    const [state, setState] = useState({
-        name:"",
-        position:"",
-        nickname:"",
-        description:""
-    });
+const initialState = {
+    name:"",
+    position:"",
+    nickname:"",
+    description:""
+};
 
+const AddForm = (props) => {
+    const [state, setState] = useState(initialState);
+
+    //I would destruct but that would mean I would have to change every instance of errorMessage to error... no thanks.
     const errorMessage = props.error;
 
     const { addSmurf, fetchFail } = props;
@@ -27,12 +30,8 @@ const AddForm = (props) => {
             fetchFail('Name, position and nickname fields are required.');
         }
         addSmurf(state);
-        setState({
-            name:"",
-            position:"",
-            nickname:"",
-            description:""
-        });
+        //Setting the form values back to their initial state.
+        setState(initialState);
     }
 
     return(<section>
